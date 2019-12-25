@@ -1,0 +1,19 @@
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";
+/**app.wxss**/
+page {
+	background-color: #870000;
+}
+.text-cumtb{
+	color: #870000;
+}
+.text-cumtb2{
+	color: #70624F;
+}
+
+.bg-cumtb{
+	background-color: #870000;
+}
+.bg-cumtb2{
+	background-color: #70624F;
+}

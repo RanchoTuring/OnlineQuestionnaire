@@ -1,0 +1,71 @@
+<!--miniprogram/pages/reader/question/question.wxml-->
+<view class="bg-cumtb2 padding-xs">
+    <text class="text-white margin-left ">No.{{questions.id}}</text> </view>
+<view class="cu-bar bg-cumtb solid-bottom">
+    <view class="action">
+        <text class="text-white text-xl text-bold">{{questions.title}}</text>
+    </view>
+</view>
+<view class="bg-cumtb">
+
+    <view class="text-left padding">
+        <text class="text-df text-white">{{questions.info}}</text>
+    </view>
+</view>
+<view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+        <text class="cuIcon-title text-cumtb"></text> 完成进度
+    </view>
+</view>
+
+<scroll-view scroll-x class="bg-white padding response cu-steps steps-bottom" scroll-into-view="scroll-{{scroll}}" scroll-with-animation>
+    <view class="cu-item {{index>scroll?'':'text-cumtb'}} padding-lr-xl" wx:for="{{questions.num}}" wx:key="*this" id="scroll-{{index}}">
+        第 {{index + 1}} 题
+        <text class="num" data-index="{{index + 1}}"></text>
+    </view>
+</scroll-view>
+
+<form bindsubmit="submit">
+    <view wx:for="{{questions.ques}}" wx:key="*this">
+        <view class="cu-bar bg-white solid-bottom margin-top">
+            <view class="cu-avatar sm round margin-lr bg-cumtb">{{index+1}}</view>
+            <text>{{item.title}}</text>
+            <!-- <button class="cu-btn bg-green shadow" bindtap="scrollSteps">下一题</button> -->
+            <text></text>
+        </view>
+
+        <view class="bg-white">
+            <view wx:if="{{item.type ==0 }}">
+
+                <radio-group class="block" bindchange="scrollSteps" name="{{index}}">
+                    <view class="cu-form-group" wx:for="{{item.item}}" wx:key="*this">
+                        <view class="title">{{item}}</view>
+                        <radio class="yellow" value="{{index}}"></radio>
+                    </view>
+                </radio-group>
+
+
+            </view>
+
+            <view wx:elif="{{item.type ==1 }}">
+                <checkbox-group bindchange="scrollSteps" name="{{index}}">
+                    <view class="cu-form-group" wx:for="{{item.item}}" wx:key="*this">
+                        <view class="title">{{item}}</view>
+                        <checkbox class="yellow" value="{{index}}"></checkbox>
+                    </view>
+
+                </checkbox-group>
+            </view>
+            <view wx:else class="padding">
+                <!-- <input name="{{index}}" placeholder="请在这里输入您的答案"></input> -->
+				<textarea placeholder="请输入内容" name="{{index}}" />
+            </view>
+            
+        </view>
+    </view>
+	<view class="cu-bar btn-group margin-tb bg-white">
+	<button class="cu-btn bg-cumtb text-white round" form-type="submit">提交</button>
+	<button class="cu-btn bg-grey text-white round" form-type="reset">重填</button>
+	</view>
+    
+</form>

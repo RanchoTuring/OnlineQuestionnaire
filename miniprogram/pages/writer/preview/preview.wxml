@@ -1,0 +1,66 @@
+<!--miniprogram/pages/writer/preview/preview.wxml-->
+<!--miniprogram/pages/reader/question/question.wxml-->
+<view class="bg-cumtb2 padding-xs">
+    <text class="text-white margin-left ">No.{{questions.id}}</text> </view>
+<view class="cu-bar bg-cumtb solid-bottom">
+    <view class="action">
+        <text class="text-white text-xl text-bold">{{questions.title}}</text>
+    </view>
+</view>
+<view class="bg-cumtb">
+
+    <view class="text-left padding">
+        <text class="text-df text-white">{{questions.info}}</text>
+    </view>
+</view>
+
+
+
+<view wx:for="{{questions.ques}}" wx:key="*this">
+    <view class="cu-bar bg-white solid-bottom margin-top">
+        <view class="cu-avatar sm round margin-lr bg-cumtb">{{index+1}}</view>
+        <text>{{item.title}}</text>
+        <!-- <button class="cu-btn bg-green shadow" bindtap="scrollSteps">下一题</button> -->
+        <text></text>
+    </view>
+
+    <view class="bg-white">
+        <view wx:if="{{item.type ==0 }}">
+
+            <radio-group class="block" name="{{index}}">
+                <view class="cu-form-group" wx:for="{{item.item}}" wx:key="*this">
+                    <view class="title">{{item}}</view>
+                    <radio class="yellow" value="{{index}}"></radio>
+                </view>
+            </radio-group>
+
+
+        </view>
+
+        <view wx:elif="{{item.type ==1 }}">
+            <checkbox-group name="{{index}}">
+                <view class="cu-form-group" wx:for="{{item.item}}" wx:key="*this">
+                    <view class="title">{{item}}</view>
+                    <checkbox class="yellow" value="{{index}}"></checkbox>
+                </view>
+
+            </checkbox-group>
+        </view>
+        <view wx:else class="padding">
+            <!-- <input name="{{index}}" placeholder="请在这里输入您的答案"></input> -->
+            <textarea placeholder="请输入内容" name="{{index}}" />
+        </view>
+
+    </view>
+</view>
+<view class="margin-tb bg-white padding ">
+    <view class="margin-tb text-df text-bold">您的问卷编号是：
+        <view class="cu-tag text-xl text-blue">{{questions.id}}</view>
+		<view class="margin-top">请将编号分享给问卷填写者进行填写</view>
+    </view>
+    <view class="margin-bottom">
+        <button class="cu-btn block bg-cumtb text-white round" bindtap="copyId">复制问卷编号</button>
+    </view>
+
+    <!-- <button class="cu-btn bg-grey text-white round" >重填</button> -->
+</view>

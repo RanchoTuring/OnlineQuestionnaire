@@ -1,0 +1,56 @@
+<!--miniprogram/pages/writer/dataDetail/dataDetail.wxml-->
+<!--miniprogram/pages/reader/question/question.wxml-->
+<view class="bg-cumtb2 padding-xs">
+	<text class="text-white margin-left ">No.{{questions.id}}</text> </view>
+<view class="cu-bar bg-cumtb solid-bottom">
+	<view class="action">
+		<text class="text-white text-xl text-bold">{{questions.title}}</text>
+	</view>
+</view>
+<view class="bg-cumtb">
+
+	<view class="text-left padding">
+		<text class="text-df text-white">{{questions.info}}</text>
+	</view>
+</view>
+
+
+<view wx:for="{{questions.ques}}" wx:key="*this">
+	<view class="cu-bar bg-white solid-bottom margin-top">
+		<view class="cu-avatar sm round margin-lr bg-cumtb">{{index+1}}</view>
+		<text>{{item.title}}</text>
+		<!-- <button class="cu-btn bg-green shadow" bindtap="scrollSteps">下一题</button> -->
+		<text></text>
+	</view>
+
+	<view class="bg-white">
+		<view wx:if="{{item.type ==0 }}">
+
+			<radio-group class="block" bindchange="scrollSteps" name="{{index}}">
+				<view class="cu-form-group" wx:for="{{item.item}}" wx:key="*this" wx:for-index="count">
+					<view class="title">{{item}}</view>
+					<view>选择人数：{{datas.itemCounter[index][count]}}</view>
+					<!-- <radio class="yellow" value="{{index}}"></radio> -->
+				</view>
+			</radio-group>
+
+
+		</view>
+
+		<view wx:elif="{{item.type ==1 }}">
+
+			<view class="cu-form-group" wx:for="{{item.item}}" wx:key="*this" wx:for-index="count">
+				<view class="title">{{item}}</view>
+				<view>选择人数：{{datas.itemCounter[index][count]}}</view>
+			</view>
+
+
+		</view>
+		<view wx:else class="padding">
+			<view class="cu-form-group" wx:for="{{datas.itemCounter[index]}}" wx:if="{{item.length>0}}" wx:key="*this">
+				<view class="title" >{{item}}</view>
+			</view>
+		</view>
+
+	</view>
+</view>

@@ -1,0 +1,40 @@
+<!--miniprogram/pages/writer/newQesName/index.wxml-->
+<view class="bg-cumtb2" style="height: 70rpx;" />
+<view class="cu-card margin-top-xl">
+    <view class="cu-item">
+        <form bindsubmit="submit">
+
+            <view class="cu-bar bg-cumtb solid-bottom margin-lr margin-top">
+                <text class="cuIcon-title text-cumtb2 margin-left">
+				<text class="text-white margin-left">请为您的问卷起一个标题</text>
+                </text>
+            </view>
+            <view class="bg-white padding-lr-xl margin-top">
+			<input placeholder="请输入内容" name="title" /> 
+              
+            </view>
+
+
+            <view class="cu-bar bg-cumtb solid-bottom margin-lr margin-top">
+                <text class="cuIcon-title text-cumtb2 margin-left">
+				<text class="text-white margin-left">请为您的问卷添加描述信息</text>
+                </text>
+            </view>
+            <view class="bg-white padding-lr-xl margin-top">
+                <textarea placeholder="请输入内容" name="info" /> 
+			</view>
+
+
+            <view class="cu-bar ctn-group margin-tb">
+                <button class="bg-cumtb2 text-white" form-type="submit">确定</button>
+                <button class="bg-grey" form-type="reset">取消</button>
+            </view>
+        </form>
+
+
+
+    </view>
+
+
+
+</view>

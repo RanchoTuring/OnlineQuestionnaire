@@ -1,0 +1,99 @@
+<!--pages/writer/addQues/addQues.wxml-->
+<view class="bg-cumtb2" style="height: 50rpx;" />
+<view class="text-center text-bold text-xxl text-white margin-top">第{{num}}题</view>
+<view class="cu-card">
+    <view class="cu-item">
+        <form bindsubmit="submit">
+            <view class="cu-bar bg-cumtb solid-bottom margin-lr margin-top radius">
+                <text class="cuIcon-title text-cumtb2 margin-left">
+				<text class="text-white margin-left">题目类型</text>
+                </text>
+            </view>
+            <view class="bg-white padding-lr-xl justify-between align-center margin-top flex">
+                <view>
+                    <text class='cu-tag bg-yellow radius padding text-df' wx:if="{{type==0}}">单选题</text>
+                    <text class='cu-tag bg-yellow radius padding text-df' wx:elif="{{type==1}}">多选题</text>
+                    <text class='cu-tag bg-yellow radius padding text-df' wx:elif="{{type==2}}">自由填写</text>
+                </view>
+                <view>
+                    <button class="cu-btn text-white bg-cumtb2" bindtap="typeModal">更改题目类型</button>
+
+                </view>
+            </view>
+            <view class="cu-modal {{showType==true?'show':''}}">
+                <view class="cu-dialog">
+                    <form bindsubmit="selectType">
+
+                        <radio-group class="block" name="type">
+                            <view class="cu-list menu text-left">
+                                <view class="cu-item" wx:for="{{types}}" wx:key="*this">
+                                    <label class="flex align-center flex-sub">
+                                        <view class="flex-sub">{{item}}</view>
+                                        <radio class="round yellow" value="{{index}}"></radio>
+                                    </label>
+                                </view>
+                            </view>
+                        </radio-group>
+                        <view class="cu-bar bg-white btn-group">
+                            <button class="cu-btn bg-cumtb margin-left text-white" form-type="submit">确定</button>
+                            <button class="cu-btn line-yellow text-yellow" bindtap="hideModal">取消</button>
+
+                        </view>
+                    </form>
+                </view>
+            </view>
+
+            <view class="cu-bar bg-cumtb solid-bottom margin-lr margin-top radius">
+                <text class="cuIcon-title text-cumtb2 margin-left">
+				<text class="text-white margin-left">请为该题添加描述</text>
+                </text>
+            </view>
+            <view class="bg-white padding-lr-xl margin-top">
+                <input placeholder="请输入内容" type="text" name="title" />
+            </view>
+            <view wx:if="{{type!=2}}">
+                <view class="cu-bar bg-cumtb solid-bottom margin-lr margin-top radius">
+                    <text class="cuIcon-title text-cumtb2 margin-left">
+				<text class="text-white margin-left">题目选项</text>
+                    </text>
+                    <view class="margin-right">
+                        <button class="cu-btn text-white bg-cumtb2" bindtap="addItem">添加新选项</button>
+
+                    </view>
+                </view>
+                <view class="bg-white padding-sm">
+                    <view class="cu-form-group align-center" wx:for='{{itemCount}}' wx:key="*this">
+                        <view class='bg-yellow radius padding-sm'>
+                            <input style="width:430rpx;" placeholder="请输入选项描述" name="{{index}}"/>
+                        </view>
+                        <view wx:if="{{index==itemCount-1}}" class="cu-tag bg-cumtb text-white text-df padding" bindtap="deleteItem">删除</view>
+                    </view>
+                </view>
+                
+            </view>
+			<view class="cu-bar btn-group margin-tb">
+                    <button class="bg-cumtb2 text-white round" form-type="submit">完成本题</button>
+                    <button class="bg-grey round" form-type="reset">取消</button>
+                </view>
+        </form>
+    </view>
+
+</view>
+
+<view class="cu-modal {{finished==true?'show':''}}">
+    <view class="cu-dialog">
+
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">本题创建完毕！</view>
+        </view>
+        <view class="padding-xl">
+            如需继续添加题目，请点击“创建下一题”；若题目已全部添加完毕，请点击“完成问卷”
+        </view>
+
+        <view class="cu-bar bg-white btn-group">
+            <button class="cu-btn bg-cumtb margin-left text-white" bindtap="nextStep" data-target="nextQues">添加下一题</button>
+            <button class="cu -btn line-yellow text-yellow" bindtap="nextStep" data-target="finish">完成问卷</button>
+
+        </view>
+    </view>
+</view>

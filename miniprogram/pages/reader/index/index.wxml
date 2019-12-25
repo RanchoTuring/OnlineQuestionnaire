@@ -1,0 +1,23 @@
+<!--pages/reader/index/index.wxml-->
+
+<view class="text-center text-bold text-xxl text-white margin-top">填写问卷</view>
+<view class="cu-card">
+	<view class="cu-item">
+		<form bindsubmit="getQues">
+	
+            <view class="cu-bar bg-cumtb solid-bottom margin-lr margin-top radius">
+                <text class="cuIcon-title text-cumtb2 margin-left">
+					<text class="text-white margin-left">请在下方输入问卷编号：</text>
+				</text>
+			</view>
+			<view class="bg-white padding-lr-xl margin-top">
+				<input placeholder="在此输入编号" type="number" name="id" />
+			</view>
+
+			<view class="cu-bar btn-group margin-tb-xl">
+				<button class="bg-cumtb2 text-white round" form-type="submit">开始填写</button>
+			</view>
+
+		</form>
+	</view>
+</view>

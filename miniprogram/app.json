@@ -1,0 +1,21 @@
+{
+    "pages": [
+        "pages/login/login",
+        "pages/writer/lookData/index",
+        "pages/reader/index/index",
+        "pages/writer/newQues/index",
+        "pages/reader/question/question",
+        "pages/writer/addQues/addQues",
+        "pages/writer/preview/preview",
+        "pages/writer/dataDetail/dataDetail"
+    ],
+    "window": {
+        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#F6F6F6",
+        "navigationBarTitleText": "中国矿业大学（北京）在线问卷调查系统",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json",
+    "style": "v2"
+}

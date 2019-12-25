@@ -1,0 +1,18 @@
+<!--pages/login/login.wxml-->
+<view class="banner" style="height: 60rpx;" />
+<image src="../../images/logo.png" mode="widthFix" style="display:block;width:500rpx;margin:30rpx auto;"></image>
+
+<view class="text-center text-xxl text-bold text-white">在线问卷调查系统</view>
+<view class="bgImg">
+    <view class="frame">
+        <button class="cu-btn block bg-grey" bindtap="navToWriter">创建问卷</button>
+
+        <button class="cu-btn margin-top-xl block bg-grey" bindtap="lookData">查看问卷数据</button>
+
+
+        <button class="cu-btn margin-top-xl block bg-grey" bindtap="navToReader">填写问卷</button>
+    </view>
+</view>
+
+<view class="banner" style="height: 55rpx;" />
+<view class="text-center text-white margin-tb-sm">计算机科学与技术17级软件工程实训作品</view>

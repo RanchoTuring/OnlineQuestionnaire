@@ -1,0 +1,15 @@
+<!--miniprogram/pages/writer/lookData/index.wxml-->
+
+<view class="cu-card" wx:for="{{questionsArray}}" wx:key="*this" bindtap="dataDetail" id="{{item.id}}">
+    <view class="cu-item padding ">
+        <view class="text-bold text-cumtb text-xl solid-bottom padding-bottom-sm">
+            {{item.title}}
+        </view>
+		<view class="flex justify-between padding-xs">
+		<view class="cu-tag bg-yellow">No.{{item.id}}</view> <view>题数：{{item.num}}  </view> 
+		</view>
+        
+        <view class="padding-lr-sm text-grey">{{item.info}}</view>
+    </view>
+
+</view>
